@@ -1,0 +1,29 @@
+{% extends 'cards/base.html' %}
+
+{% block title %}Карточки{% endblock %}
+
+{% block content %}
+<h1 class="title">Карточки</h1>
+
+<div class="columns is-multiline">
+    {% for card in cards %}
+    <div class="column is-one-quarter">
+        <div class="card">
+            {% if card.image %}
+            <div class="card-image">
+                <figure class="image is-4by3">
+                    <img src="{{ card.image.url }}" alt="{{ card.word }}">
+                </figure>
+            </div>
+            {% endif %}
+            <div class="card-content">
+                <p class="title is-4">{{ card.word }}</p>
+                <p class="subtitle is-6">{{ card.translation }}</p>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <p>Карточек нет.</p>
+    {% endfor %}
+</div>
+{% endblock %}

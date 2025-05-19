@@ -1,0 +1,15 @@
+{% extends 'cards/base.html' %}
+
+{% block title %}Редактировать карточку{% endblock %}
+
+{% block content %}
+<h1 class="title">Редактировать карточку: {{ card.word }}</h1>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button class="button is-primary" type="submit">Сохранить</button>
+    <a href="{% url 'card_list' %}" class="button is-light">Отмена</a>
+</form>
+{% endblock %}

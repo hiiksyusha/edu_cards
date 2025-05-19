@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Карточки{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+<body>
+    <section class="section">
+        <div class="container">
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item" href="{% url 'index' %}">Главная</a>
+                        <a class="navbar-item" href="{% url 'card_view' %}">Просмотр карточек</a>
+                        <a class="navbar-item" href="{% url 'card_list' %}">Таблица карточек</a>
+                        <a class="navbar-item" href="{% url 'add_card' %}">Добавить карточку</a>
+                        <a class="navbar-item" href="{% url 'upload_csv' %}">Загрузить CSV</a>
+                    </div>
+                </div>
+            </nav>
+
+            {% block content %}
+            {% endblock %}
+        </div>
+    </section>
+</body>
+</html>
